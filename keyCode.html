@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyCode</title>
+    <style>
+        * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: IranSans
+}
+
+@font-face {
+	font-family: IranSans;
+	src: url(../fonts/IRANSansWeb.ttf);
+}
+
+body {
+	background: #bd2d75;
+}
+
+#heading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 60px;
+	height: 100px;
+}
+
+#heading h1 {
+	font-weight: bold;
+	font-size: 50px;
+}
+
+#ascii {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 100px;
+	color: rgb(0, 88, 204);
+}
+
+#infos {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.info-box {
+	text-align: center;
+	width: 20%;
+	border: 1px solid #ccc;
+}
+
+.info-box h3 {
+	background: #b9e9ff;
+	border-bottom: 2px solid #b9e9ff;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.info-box h2 {
+	background: #fff;
+	padding: 5px;
+}
+
+#heading, #ascii, #infos {
+	display: none;
+}
+
+#starter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-weight: bolder;
+	height: 100vh;
+}
+
+#starter #starter-text {
+	background: #fff;
+	padding: 10px;
+}
+    </style>
+</head>
+<body onkeydown="keydown(event)">
+
+    
+	<section id="starter">
+		<div id="starter-text">
+			Press any key to get the JavaScript event keycode
+		</div>
+	</section>
+
+	<div id="heading">
+		<h1>KeyCode</h1>
+	</div>
+
+	<div id="ascii">
+		<h1 id="keyCode"></h1>
+	</div>
+
+	<div id="infos">
+		<div class="info-box">
+			<h3>event.key</p>
+				<h2 id="key"></h2>
+		</div>
+
+		<div class="info-box">
+			<h3>event.location</p>
+				<h2 id="location"></h2>
+		</div>
+
+		<div class="info-box">
+			<h3>event.which</p>
+				<h2 id="which"></h2>
+		</div>
+
+		<div class="info-box">
+			<h3>event.code</p>
+				<h2 id="code"></h2>
+		</div>
+	</div>
+    
+
+
+
+
+	<!-- typewriter -->
+	<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js">
+		
+	</script>
+
+
+
+    <script>
+    let $ = document
+        let locationKey = $.querySelector('#location')
+        let title = $.querySelector('title')
+        
+        let keyCodeElem = $.getElementById('keyCode')
+        let keyElem = $.getElementById('key')
+        let locationElem = $.getElementById('location')
+        let whichElem = $.getElementById('which')
+        let codeElem = $.getElementById('code')
+        
+        document.body.addEventListener('keydown', function (event) {
+        
+            event.preventDefault()
+
+            console.log(event) //add
+
+
+            starter.style.display = 'none'
+            heading.style.display = 'flex'
+            ascii.style.display = 'flex'
+            infos.style.display = 'flex'
+        
+            let eventKeyCode = event.keyCode
+            let eventKey = event.key
+            let eventLocation = event.location
+            let eventWhich = event.which
+            let eventCode = event.code
+        
+            keyCodeElem.innerHTML = eventKeyCode
+            keyElem.innerHTML = eventKey
+            locationElem.innerHTML = eventLocation
+            whichElem.innerHTML = eventWhich
+            codeElem.innerHTML = eventCode
+        
+        })
+        
+
+
+
+		
+	const starter_text = document.getElementById('starter-text');
+
+	const typewriter = new Typewriter(starter_text, {
+	loop: true,
+	delay: 75,
+	});
+
+	typewriter.typeString("Press any key to get the JavaScript event keycode")
+	.pauseFor(2500)
+	.start();
+    </script>
+
+</body>
+</html>
